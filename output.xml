@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.10.7 on win32)" generated="20230217 11:43:52.255" rpa="false" schemaversion="3">
+<suite id="s1" name="TestCasesA" source="c:\Users\zouha\Desktop\Automatisation2\TestsCases\TestCasesA.robot">
+<test id="s1-t1" name="Scénario C: nombre d’éléments recherchés2" line="20">
+<kw name="Rechercher un element dans Ebay" library="Keywords">
+<arg>Toy cars</arg>
+<kw name="Given Open Browser" library="SeleniumLibrary">
+<arg>${vURL}</arg>
+<arg>${vBrowser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230217 11:43:52.555" level="INFO">Opening browser 'chrome' to base url 'https://www.ebay.com/'.</msg>
+<status status="PASS" starttime="20230217 11:43:52.554" endtime="20230217 11:43:56.886"/>
+</kw>
+<kw name="When Input Text" library="SeleniumLibrary">
+<arg>${Inp_BarreRecherche}</arg>
+<arg>${vTextRecherche}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230217 11:43:56.890" level="INFO">Typing text 'Toy cars' into text field '//input[@type='text']'.</msg>
+<status status="PASS" starttime="20230217 11:43:56.887" endtime="20230217 11:43:59.670"/>
+</kw>
+<kw name="When Press Keys" library="SeleniumLibrary">
+<arg>${Inp_BarreRecherche}</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230217 11:43:59.676" level="INFO">Sending key(s) ('ENTER',) to //input[@type='text'] element.</msg>
+<msg timestamp="20230217 11:44:00.267" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20230217 11:44:00.268" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20230217 11:43:59.671" endtime="20230217 11:44:04.045"/>
+</kw>
+<status status="PASS" starttime="20230217 11:43:52.553" endtime="20230217 11:44:04.046"/>
+</kw>
+<kw name="Capture du nombre de résultats de recherche" library="Keywords">
+<var>${resultats}</var>
+<kw name="Set Variable" library="BuiltIn">
+<var>${xpath}</var>
+<arg>//h1[contains(text(), "result")]/span</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230217 11:44:04.049" level="INFO">${xpath} = //h1[contains(text(), "result")]/span</msg>
+<status status="PASS" starttime="20230217 11:44:04.048" endtime="20230217 11:44:04.050"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${resultats_text}</var>
+<arg>xpath=${xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230217 11:44:04.171" level="INFO">${resultats_text} = 510,000</msg>
+<status status="PASS" starttime="20230217 11:44:04.050" endtime="20230217 11:44:04.173"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${resultats}</var>
+<arg>${resultats_text.split(' ')[0]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230217 11:44:04.178" level="INFO">${resultats} = 510,000</msg>
+<status status="PASS" starttime="20230217 11:44:04.174" endtime="20230217 11:44:04.179"/>
+</kw>
+<msg timestamp="20230217 11:44:04.179" level="INFO">${resultats} = 510,000</msg>
+<status status="PASS" starttime="20230217 11:44:04.046" endtime="20230217 11:44:04.181"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Le nombre de résultats de recherche est : ${resultats}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230217 11:44:04.191" endtime="20230217 11:44:04.215"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230217 11:44:04.217" endtime="20230217 11:44:06.455"/>
+</kw>
+<status status="PASS" starttime="20230217 11:43:52.552" endtime="20230217 11:44:06.457"/>
+</test>
+<doc>Fichiers de scripts pour le module RQ3 : Sites.</doc>
+<status status="PASS" starttime="20230217 11:43:52.262" endtime="20230217 11:44:06.459"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TestCasesA">TestCasesA</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
